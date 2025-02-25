@@ -8,21 +8,21 @@ import image3 from '/public/image3.png'
 const Background = ({ herocount, play }) => {
   let background = null;
 
-  if (!play) {
+  if (play === false) {
     
     if (herocount === 0) {
-      background = <img src={image1} alt="Background Image 1" />;
+      background = <img src={image1}  />;
     } else if (herocount === 1) {
-      background = <img src={image2} alt="Background Image 2" />;
+      background = <img src={image2}/>;
     } else if (herocount === 2) {
-      background = <img src={image3} alt="Background Image 3" />;
+      background = <img src={image3} />;
     }
   } else {
-    background = (
-      <video loop autoPlay muted>
+    background = 
+      <video loop autoPlay >
         <source src={video1} type="video/mp4" />
       </video>
-    );
+    ;
   }
 
   return <Container>{background}</Container>;
@@ -39,6 +39,7 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  float: left;
 
   img, video {
     height: 100vh;
